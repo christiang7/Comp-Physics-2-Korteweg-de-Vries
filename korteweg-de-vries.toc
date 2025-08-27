@@ -1,0 +1,16 @@
+\contentsline {section}{\numberline {1}Einleitung}{2}{section.1}
+\contentsline {section}{\numberline {2}Korteweg-de-Vries Gleichung}{2}{section.2}
+\contentsline {subsection}{\numberline {2.1}Numerisches L\IeC {\"o}sungsverfahren: Zabuski-Kruskal Schema}{3}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}Korteweg-de-Vries Gleichung bei variabler Tiefe}{3}{subsection.2.2}
+\contentsline {section}{\numberline {3}Erzeugung von Solitonwellen mit konstanter Tiefe (Problem 1)}{5}{section.3}
+\contentsline {section}{\numberline {4}Solitonwellen mit variabler Tiefe (Problem 2)}{7}{section.4}
+\contentsline {subsection}{\numberline {4.1}$ \leavevmode \begingroup \color {blue!70!black}h\endgroup _1 (\leavevmode \begingroup \color {gray}x\endgroup ) $ Unterwassererh\IeC {\"o}hung}{7}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}Abh\IeC {\"a}ngigkeit der Amplitude $ \leavevmode \begingroup \color {blue!70!black}A\endgroup (h_0) $ von der Tiefe $ h_0 $}{7}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}$ \leavevmode \begingroup \color {blue!70!black}h\endgroup _2 (\leavevmode \begingroup \color {gray}x\endgroup ) $ Beispiel eines Unterwasserh\IeC {\"u}gels, exponentielle Wassertiefenfunktion}{9}{subsection.4.3}
+\contentsline {section}{\numberline {5}Zusammenfassung}{10}{section.5}
+\contentsline {section}{\numberline {6}Korrekturen}{11}{section.6}
+\contentsline {subsection}{\numberline {6.1}Konstanz der Momente}{11}{subsection.6.1}
+\contentsline {subsection}{\numberline {6.2}Wassertiefenfunktion $ \leavevmode \begingroup \color {blue!70!black}h\endgroup _1 $}{15}{subsection.6.2}
+\contentsline {subsubsection}{\numberline {6.2.1}Abh\IeC {\"a}ngigkeit der Amplitude $ \leavevmode \begingroup \color {blue!70!black}A\endgroup (h_0) $ von der Tiefe $ h_0 $}{17}{subsubsection.6.2.1}
+\contentsline {subsection}{\numberline {6.3}Wassertiefenfunktion $ \leavevmode \begingroup \color {blue!70!black}h\endgroup _2 $}{18}{subsection.6.3}
+\contentsline {section}{\numberline {7}Programm}{21}{section.7}

@@ -1,0 +1,16 @@
+\BOOKMARK [1][-]{section.1}{Einleitung}{}% 1
+\BOOKMARK [1][-]{section.2}{Korteweg-de-Vries Gleichung}{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{Numerisches L\366sungsverfahren: Zabuski-Kruskal Schema}{section.2}% 3
+\BOOKMARK [2][-]{subsection.2.2}{Korteweg-de-Vries Gleichung bei variabler Tiefe}{section.2}% 4
+\BOOKMARK [1][-]{section.3}{Erzeugung von Solitonwellen mit konstanter Tiefe \(Problem 1\)}{}% 5
+\BOOKMARK [1][-]{section.4}{Solitonwellen mit variabler Tiefe \(Problem 2\)}{}% 6
+\BOOKMARK [2][-]{subsection.4.1}{ blue!70!blackh1 \(grayx\) \040Unterwassererh\366hung}{section.4}% 7
+\BOOKMARK [2][-]{subsection.4.2}{Abh\344ngigkeit der Amplitude \040blue!70!blackA\(h0\) \040von der Tiefe \040h0 }{section.4}% 8
+\BOOKMARK [2][-]{subsection.4.3}{ blue!70!blackh2 \(grayx\) \040Beispiel eines Unterwasserh\374gels, exponentielle Wassertiefenfunktion}{section.4}% 9
+\BOOKMARK [1][-]{section.5}{Zusammenfassung}{}% 10
+\BOOKMARK [1][-]{section.6}{Korrekturen}{}% 11
+\BOOKMARK [2][-]{subsection.6.1}{Konstanz der Momente}{section.6}% 12
+\BOOKMARK [2][-]{subsection.6.2}{Wassertiefenfunktion \040blue!70!blackh1 }{section.6}% 13
+\BOOKMARK [3][-]{subsubsection.6.2.1}{Abh\344ngigkeit der Amplitude \040blue!70!blackA\(h0\) \040von der Tiefe \040h0 }{subsection.6.2}% 14
+\BOOKMARK [2][-]{subsection.6.3}{Wassertiefenfunktion \040blue!70!blackh2 }{section.6}% 15
+\BOOKMARK [1][-]{section.7}{Programm}{}% 16
