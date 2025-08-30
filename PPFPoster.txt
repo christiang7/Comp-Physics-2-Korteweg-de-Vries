@@ -1,0 +1,17 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2022-06-01T23:30:04+02:00
+
+++ PPFPoster
+%[NoZ: true]
+%[Anhang: '&&i']
+%[short_hint: '&&i']
+
+PPF Poster ist fertig stellt
+Thema: Korteweg de Vries Gleichung
+++ ----
+%[tags: '&&i'; '&&i'; '&&i'; '&&i'; '&&i'; '&&i']
+%[contact: '&&i']
+%[pagetype: form]
+%[paragraph_mode: true]
+%[bookmarked: &&i true]

@@ -1,0 +1,264 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.6
+Creation-Date: 2022-06-01T23:33:18+02:00
+
+++ CPKortewegGlg 
+[:rel:back]
+[:toc:]
+[Anhang: '&&i']
+[short_hint: 'cp2']
+#
+S Computational Physics 2 - Korteweg-de-Vries Gleichung
+
+Die gesamte Dokumentation befindet sich in der noweb Datei.
+[rel://Comp-Physics-2/korteweg-de-vries.nw]
+
+https://moodle2.uni-potsdam.de/course/view.php?id=7342
+
+Aufgabenblatt
+[rel://storage/LIMWTSPP/Computational-Physics-Korteweg-de-Vries.pdf]
+
++++Zettelorga
+Monat 2018
+1|
+2|
+3|
+4|
+5|
+6|
+7|
+8|
+9|
+10|
+11|
+12|
+13|
+14|
+15|
+16|
+17|
+18|
+19|
+20|
+21|
+22|
+23|
+24|
+25|
+26|
+27|
+28|
+29|
+30|
+31|
+
++++Protokoll
+
+[rel://storage/NFDM5BTV/Taha and Ablowitz - 1984 - Analytical and numerical aspects of certain nonlin.pdf]
+[rel://storage/LAF57C5J/Johnson - 1972 - Some numerical solutions of a variable-coefficient.pdf]
+[rel://storage/M4ZV2NN8/Hui-Ping et al. - 2008 - An explicit scheme for the KdV equation.pdf]
+[rel://storage/WAUZTWV2/KdV_Encyclopedia_of_Nonlinear_Science.pdf]
+
+Soliton - Scholarpedia
+http://www.scholarpedia.org/article/Soliton
++++Aufgabe 1
+
+Simulation erledigt
+
+done.cp2: S Codeoptimierung (bessere Übersicht, Erklärung) nochmal \NumCalc genauer anschauen und dort die vielen Sachen auslagern wie output, Int usw.
+
+
++++Aufgabe 2
+
+done.cp2: Profilfunktion implementiert, aber mehr dokumentieren wie was wo ist und mit was
+done.cp2: Profilfunktion verbesern, im Detail so das am anderen Ende kein abrubter Abgang ist
+done.cp2: Code aufräumen
+
+from subprocess import call
+#
+##### Meta
+'''
+Programmiersprache: julia
+Methoden:
+    - Vertauschung von Zeilen einer 3 mal n Matrix
+    - Kommandozeilenargumente fürs Julia Programm nutzen
+    - gnuplot live plot, die Daten werden sofort live angezeigt über shell pipes
+    - 1. Verwendung von noweb
+    - 1. Verwendung von Leo Editor als Programmierumgebung
+    - Punkte im Dateiname in Latex (Quelle: https://tex.stackexchange.com/questions/10574/includegraphics-dots-in-filename)
+    - PyPlot Benutzung bei Script in der Kommandozeile den Paramter -i setzen
+'''
+
+##### Historie
+'''
+3.8.2018
+    - Plotmethode geändert: zuerst Datei mit Daten füllen, dann gnuplot die Datei auswerten lassen
+    - Fertigstellung der Plotausgabe über PyPlot
+3.6.2018
+    - Die Berechnung der Integrale überprüft und neu geschrieben. 
+    - Aufgabe 1 vollständig protokolliert.
+    - Idee: vielleicht 3d Modell bauen mit t,x,u Achsen
+    - todo.cp2: Aufgabe 2 Diagramme vorbereiten und nochmal Aufgaben klären
+30.5.2018
+     - Lösung für Punkte im Dateinamen in Latex \includegraphics{{bild0.1-0.1}.png}
+     - Lösung für die Anzeige der Nachkommastelle mittels trunc(Zahl, Nachkommastelle) Funktion
+26.5.2018 
+     - Bilder für die 1. Aufgabe erzeugt. Die Bilder befinden sich in dem Unterordner Aufgabe 1.
+     - 
+17.5.2018 
+     - Bilder werden von der laufenden Simulation in 200 Schritten abgespeichert, nebenbei läuft die Anzeige des Diagramms weiter
+16.5.2018
+	- T Kapitel Korteweg-de-Vries Gleichung, Numerisches Lösungsverfahren: ..., und Korteweg-de-Vries Gleichung bei variabler Tiefe geschrieben
+	- todo.cp2: Überlegung ob Quellcode gleich mit einbeziehen
+	- done.cp2: Bilder der Simluation für die Problemstellungen erzeugen, dazu ein bisschen Programmierarbeit nötig
+20.4.2018 
+    - Anfang der Einleitung
+16.4.2018 
+    - Bei der Compilation einen neuen Parameter gesetzt, der die Variable h0 steuert
+    - ein paar Kommentare im Code gesetzt
+    - die Compilation stabiler gemacht durch hinzufügen eines '&' Symbols am Ende jedes Kommandos 
+    - Tests für die Abhängigkeit der Amplitude von h0 gemacht
+    - offen was genau gezeigt, geplottet werden soll mit N(h0) bzw. N*(N+1) abh. h0
+9.4.2018 
+    - die Variable schalter erweitert 
+    - die h(x) Funktion erweitert mit der exp() Funktion
+    - gelungener Testlauf mit der neuen h(x) Funktion
+    - überprüft ob alle Aufgaben erfüllt sind: offen: Amplitudenabhängigkeit ermitteln
+    - Doku: Parameterübergabe an das julia Programm wo welcher Parameter übergeben wird beim Programm aufruf
+4.4.2018
+    - Umstrukturierung der noweb Datei: Einfügung des Leo Buttons
+    - Erweiterung der Shell Argumente fürs julia Script 
+    - Historie.log ist jetzt in der noweb Datei
+    - Erweiterung des Outputs: gnuplot output in png möglich
+    - Komprimierung der Dateien ausgestellt
+    - Versions.conf ist jetzt Teil der noweb der Datei
+28.3.2018
+    - Einpflegung ins Leo Programm über die CodeFabrik.leo Datei.
+    - Shell Argumente fürs julia Script eingefügt.
+15.1.2018
+    - Programm funktioniert wieder mit Einrückung und einen Schalter zum umschalten zwischen Problem 1 und Problem 2
+    
+'''
+
+
+##### Dokumentation
+## Methode zum Erzeugen des Julia Quellcodes
+g.execute_shell_commands("echo '----------------Start ----------------'")
+#print('start')
+g.execute_shell_commands("notangle -Rkorteweg.jl Comp-Physics-2/korteweg-de-vries.nw > Comp-Physics-2/korteweg.jl")
+
+## Methode zur Erzeugung von html Seiten
+
+#g.execute_shell_commands("noweave -filter l2h -index -autodefs c -html korteweg-de-vries.nw > korteweg-de-vries.html &")
+
+
+##### Debug
+
+#g.execute_shell_commands("julia korteweg.jl 0 3 0.1 2.4 2 0.5 0 &")
+#g.execute_shell_commands("julia korteweg.jl 0 3 0.1 2.4 2 0.5 0 | gnuplot -p &")
+
+##### Compilation ohne Leo Editor
+'''
+
+g.execute_shell_commands("notangle -Rkorteweg.jl korteweg-de-vries.nw | julia | gnuplot -p &")
+
+
+g.execute_shell_commands("notangle -Rkorteweg.jl korteweg-de-vries.nw > korteweg.jl && julia korteweg.jl 1 500000 | gnuplot -p &")
+
+'''
+##### Projekt PyPlot ohne Gnuplot plotten
+
+#g.execute_shell_commands("julia -i korteweg.jl 0 5000 0.1 5.5 3 0.5 0 &")
+
+## Parameterübergabeerklärung
+'''
+julia korteweg.jl p1 p2 p3 p4 p5 p6 p7 p8 
+
+p1 - Variable schalter 
+p2 - Ende der Schleife über n
+p3 - Variable delta_x
+p4 - Variable grenze, Größe des Gitters
+p5 - Variable N
+p6 - Variable h0, Tiefe des Wassers
+p7 - Schalter für Dateioutput ja oder nein
+p8 - Startposition
+'''
+
+##### Aufgabe 1
+
+## TODO Herleitung des Stabilitätskriteriums
+
+## N = 1
+
+#g.execute_shell_commands("julia korteweg.jl 0 5000 0.1 5.5 1 0.5 1 0.3 | gnuplot -p &")
+#g.execute_shell_commands("julia korteweg.jl 0 5000 0.1 5.5 1 0.5 1 0.3 > filled.log")
+
+## N = 2
+# sind folgende Parameter nötig delta_x = 0.1 grenze = 4.4
+
+#g.execute_shell_commands("julia korteweg.jl 0 5000 0.1 5.5 2 0.5 1 0.3 | gnuplot -p &")
+#g.execute_shell_commands("julia korteweg.jl 0 5000 0.1 5.5 2 0.5 1 0.3 > filled.log")
+
+## N = 2,5
+#g.execute_shell_commands("julia korteweg.jl 0 5000 0.1 5.5 2.5 0.5 1 0.3 | gnuplot -p &")
+#g.execute_shell_commands("julia Comp-Physics-2/korteweg.jl 0 500 0.1 5.5 2.5 0.5 1 0.3 > Comp-Physics-2/filled.log")
+g.execute_shell_commands("julia korteweg.jl 0 500 0.1 5.5 2.5 0.5 1 0.3 > filled.log")
+
+## N = 3, delta_x=0.05 grenze = 5.4 ohne sleep
+# bis einschließlich N = 5 reicht delta_x=0.05 und grenze = 5.4 vollkommen aus
+
+#g.execute_shell_commands("julia korteweg.jl 0 5000 0.1 5.5 3 0.5 1 0.3 | gnuplot -p &")
+#g.execute_shell_commands("julia korteweg.jl 0 5000 0.1 5.5 5 0.5 1 0.3 > filled.log")
+
+## Tests mit N als rationale Zahl, zum Teil sehr krummen Zahlen
+#g.execute_shell_commands("julia korteweg.jl 0 5000 0.05 10.5 4.644674 0.5 0 0.3 | gnuplot -p &")
+#g.execute_shell_commands("julia korteweg.jl 0 5000 0.05 10.5 6.644674 0.5 0 0.3 > filled.log")
+
+##### Aufgabe 2
+## Profilfunktion 1 dabei den schalter auf 1 setzen
+# funktioniert mit diesen Paramtern 1 500000 0.05 4.4 2 0.5 0
+
+#g.execute_shell_commands("julia korteweg.jl 1 20000 0.05 5.5 2 0.5 0 0.3 | gnuplot -p &")
+#g.execute_shell_commands("julia korteweg.jl 1 20000 0.05 5.5 1 0.5 1 0.3 | gnuplot -p &")
+#g.execute_shell_commands("julia Comp-Physics-2/korteweg.jl 1 20000 0.05 5.5 1 0.5 0 0.3 > Comp-Physics-2/filled.log")
+
+#g.execute_shell_commands("julia korteweg.jl 1 20000 0.05 5.5 2 0.5 0 0.3 > filled.log")
+
+## Profilfunktion 2 mit exp(.) dabei den schalter auf 2 setzen
+
+#g.execute_shell_commands("julia korteweg.jl 2 500000 0.05 10.4 1 0.8 0 0.3 | gnuplot -p &")
+
+#g.execute_shell_commands("julia Comp-Physics-2/korteweg.jl 1 2000 0.05 10.4 1 0.5 0 0.22 > Comp-Physics-2/filled.log")
+
+## Profilfunktion 2 Exponentialunktion 
+#g.execute_shell_commands("julia Comp-Physics-2/korteweg.jl 2 7000 0.05 10.4 1 0.5 0 -0.22 > Comp-Physics-2/filled.log")
+
+
+# erster Test ergab bei sim time = 1.0 ein großes Soliton, für n=500000,delta_x=0.05 ,größe=10.4,N=3, h0=0.5 funktioniert
+# Bei N = 3 geht es von 0 bis 0.7, dann explodiert die Lösung
+# ??? # 
+
+##Profilfunktion 3 also die originale h(x) Funktion
+#g.execute_shell_commands("julia Comp-Physics-2/korteweg.jl 3 16000 0.05 10.4 1 0.6 1 0 > Comp-Physics-2/filled.log")
+
+
+##### testing
+
+#g.execute_shell_commands("julia korteweg.jl 2 3000 0.05 5.5 2 0.5 0 > filled.log")
+
+####
+g.execute_shell_commands("echo '----------------Gnuplot Start----------------'")
+g.execute_shell_commands("gnuplot filled.log -p &")
+g.execute_shell_commands("echo '----------------Gnuplot Ende ----------------'")
++++Todos:
+todo.cp2: Absprache mit Pikoski über Aufgabe 2 wie ist das Diagramm zu verstehen
+
+
+++#
+[tags: 'Welle'; 'Simulation'; '1'; 'Studium'; 'Programmierung'; '&&i']
+[contact: '&&i']
+[:rel:parents]
+[pagetype: form]
+[paragraph_mode: true]
+[bookmarked: &&i true]
+[icon: '&&i']
